@@ -4,10 +4,11 @@ import "fmt"
 
 func main() {
 	ch := make(chan int)
-	ch <- 9
-	fmt.Println(<-ch)
+	//ch <- 9
 	go printNumber(ch)
-	fmt.Println("func main")
+	x :=<-ch
+	x++
+	fmt.Println("func main", x)
 }
 func printNumber(ch chan int){
 	ch <- 7
